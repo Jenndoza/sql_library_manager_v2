@@ -39,15 +39,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-async () => {
+(async () => {
   try {
     await sequelize.authenticate();
     console.log('Connection to the database successful!');
     await sequelize.sync();
   } catch (error) {
-    //code here if error
     console.error('Error connecting to the database: ', error);
   }
-};
+})();
 
 module.exports = app;
